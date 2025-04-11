@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router';
 import './App.css';
+import { Routes } from 'react-router';
+import { Route } from 'react-router';
+import { MainHeader } from './Components/MainHeader';
+import Home from './Components/Home';
+import About from './Components/About';
+import Contact from './Components/Contact';
+import Choukashi from './Components/Choukashi';
+import FactoryManagers from './Components/FactoryManagers';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <>
+        <BrowserRouter>
+            <Routes>
+              <>
+                <Route path="/" element={<MainHeader />} >
+                  <Route index path="/" element={<Home />}></Route>
+                  <Route index path="/aboutus" element={<About />}></Route>
+                  <Route index path="/factorymanagers" element={<FactoryManagers />}></Route>
+                  <Route index path="/choukashi" element={<Choukashi />}></Route>
+                  <Route index path="/contactus" element={<Contact />}></Route>
+                </Route>
+              </>
+            </Routes>
+        </BrowserRouter>
+      </>
+    </>
   );
 }
 
