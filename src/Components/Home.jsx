@@ -2,7 +2,6 @@ import React from "react";
 import "../App.css"; 
 import WhyChooseUs from "./WhyChooseUs";
 import WhereWeRefer from "./WhereWeRefer";
-import KeyFeatures from "./KeyFeatures";
 import HomeHeader from "./HomeHeader";
 import GetDemo from "./GetDemo";
 import About from "./About";
@@ -20,7 +19,7 @@ const Home = () => {
         <FactoryManagers />
       </div>
 
-      <div id="crm">
+      <div id="crm" className="d-none d-sm-block">
         <Choukashi />
       </div>
       
@@ -28,21 +27,21 @@ const Home = () => {
         <WhyChooseUs />
       </div>
 
-      {/* <div>
+      <div className="d-none d-lg-block">
         <WhereWeRefer />
-      </div> */}
+      </div>
       
-      {/* <div>
+      <div>
         <GetDemo />
-      </div> */}
+      </div>
 
-      {/* <section id="about">
+      <section id="about">
         <About />
-      </section> */}
+      </section>
       
-      {/* <div id="contact">
+      <div id="contact">
         <Contact />
-      </div> */}
+      </div>
     </div>
   );
 };

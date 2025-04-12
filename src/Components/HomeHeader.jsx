@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../App.css'; // make sure to include your CSS file
+import '../App.css'; 
 
 const HomeHeader = () => {
   const fullText = "All-in-One ERP Solution";

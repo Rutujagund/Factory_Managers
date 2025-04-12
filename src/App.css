@@ -377,10 +377,10 @@ scrollbehavior {
 }
 
 #contact {
-  scroll-margin-top: 80px; /* adjust based on your navbar height */
+  scroll-margin-top: 80px; 
 }
 
-@media (max-width: 991.98px) { /* Bootstrap lg breakpoint */
+@media (max-width: 991.98px) { 
   .navbar-transparent {
     background-color: white !important;
   }
@@ -397,34 +397,99 @@ scrollbehavior {
   }
 }
 
-@media (max-width: 767.98px) {
+@media (min-width: 767.98px) and (max-width: 1024px) {
   .choukashicard {
-    width: 90% !important;
-    height: auto !important;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 132px !important;
+    height: 122px !important;
+    border: 1px solid #ccc;
   }
 
-  .choukashicard .card-body {
-    display: flex;
-    align-items: center;
-    width: 100%;
+  .chooseShadow p {
+    display: none !important;
   }
 
-  .choukashicard .card-content {
-    flex-direction: row !important;
-    justify-content: start;
-    width: 100%;
+  .chooseShadow i{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .disableMobile {
+    display: none;
+  }
+
+  .choukashicard {
+    width: 100px !important;
+    height: 110px !important;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .choukashicard i {
+    font-size: 1rem !important;
   }
 
   .choukashicard .card-title {
-    font-size: 14px;
-    margin-bottom: 0;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
   }
 
-  .keyfeatures .card:hover {
-    transform: none; /* Disable hover effect */
+  .choukashicard .overlay {
+    display: none !important;
+  }
+
+  .choukashicard:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .keyfeatures .col-lg-3 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+
+  .about-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .about-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .chooseShadow p {
+    display: none !important;
+  }
+
+  .chooseShadow i {
+    font-size: 1.5rem !important;
+    margin: 0;
+  }
+
+  .chooseShadow h5 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .col-md-1 {
+    display: none !important;
+  }
+
+  .headerImg img {
+    height: 218px !important;
+    width: 100% !important;
+    margin-top: 1rem;
+  }
+
+  .chooseShadow {
+    margin: 8px 0 !important;
+  }
+
+  .about-section p{
+    display: none;
   }
 }

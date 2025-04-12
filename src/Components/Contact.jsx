@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../App.css";
 import emailjs from 'emailjs-com';
 
@@ -12,7 +12,6 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Used EmailJS to send the form data
     emailjs.send(
       'service_usu1rqb', 
       'template_ls4kula', 
@@ -118,7 +117,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="container-fluid bg-light py-4">
+      <section className="container-fluid bg-light py-4 d-none d-flex-none">
         <div className="container">
           <div className="row">
             {contactData.map((val, index) => (
