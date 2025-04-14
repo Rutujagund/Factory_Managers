@@ -90,12 +90,9 @@ const Contact = () => {
             <img
               src="/Images/callus.gif"
               alt="Contact Illustration"
+              className="contactImg"
               style={{
-                height: "500px",
-                width: "90%",
-                borderRadius: "0px 60px",
-                marginLeft: "5%",
-                boxShadow: "2px 2px 5px 3px rgba(0, 0, 0, 0.2)"
+                
               }}
             />
           </div>
