@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import '../App.css';
 
 const Layout = () => {
+
+  const closeNavbar = () => {
+    const navCollapse = document.getElementById('navbarNav');
+    if (navCollapse.classList.contains('show')) {
+      navCollapse.classList.remove('show');
+    }
+  };  
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -30,11 +38,11 @@ const Layout = () => {
 
         <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
           <ul className="navbar-nav fw-bold">
-            <li className="nav-item"><a className="nav-link" href="#top">Home</a></li>
-            <li className="nav-item"><a className="nav-link" href="#erp">ERP</a></li>
-            <li className="nav-item"><a className="nav-link" href="#crm">CRM</a></li>
-            <li className="nav-item"><a className="nav-link" href="#about">About Us</a></li>
-            <li className="nav-item"><a className="nav-link" href="#contact">Contact Us</a></li>
+            <li className="nav-item"><a className="nav-link" href="#top" onClick={closeNavbar}>Home</a></li>
+            <li className="nav-item"><a className="nav-link" href="#erp" onClick={closeNavbar}>ERP</a></li>
+            <li className="nav-item"><a className="nav-link" href="#crm" onClick={closeNavbar}>CRM</a></li>
+            <li className="nav-item"><a className="nav-link" href="#about" onClick={closeNavbar}>About Us</a></li>
+            <li className="nav-item"><a className="nav-link" href="#contact" onClick={closeNavbar}>Contact Us</a></li>
           </ul>
         </div>
 

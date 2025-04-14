@@ -1,45 +1,71 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../App.css";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", mobile: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    message: ""
+  });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Used EmailJS to send the form data
-    emailjs.send(
-      'service_usu1rqb', 
-      'template_ls4kula', 
-      formData,
-      'Usj8gO7XjQGAiwrcG' 
-    ).then(
-      (result) => {
-        alert("Your message has been sent!");
-        setFormData({ name: "", email: "", mobile: "", message: "" });
-      },
-      (error) => {
-        console.error(error.text);
+    emailjs
+      .send(
+        "service_s1nfer9",         
+        "template_z8tx6us",        
+        formData,                  
+        "Usj8gO7XjQGAiwrcG"        
+      )
+      .then((result) => {
+        console.log("Admin email sent:", result.text);
+
+        emailjs
+          .send(
+            "service_s1nfer9",       
+            "template_ls4kula",      
+            {
+              name: formData.name,
+              email: formData.email
+            },
+            "Usj8gO7XjQGAiwrcG"
+          )
+          .then(() => {
+            alert("Your message has been sent!");
+            setFormData({ name: "", email: "", mobile: "", message: "" });
+          })
+          .catch((err) => {
+            console.error("User email failed:", err.text);
+            alert("Something went wrong while sending confirmation.");
+          });
+      })
+      .catch((error) => {
+        console.error("Admin email failed:", error.text);
         alert("Something went wrong!");
-      }
-    );
+      });
   };
 
   const contactData = [
     {
-      'icon': 'fa-solid fa-square-phone',
-      'heading': 'Call Us Anytime',
-      'desc': '7768810025',
+      icon: "fa-solid fa-square-phone",
+      heading: "Call Us Anytime",
+      desc: "7768810025"
     },
     {
-      'icon': 'fa-solid fa-envelope',
-      'heading': 'Send E-Mail',
-      'desc': 'factorymanagers28@gmail.com',
+      icon: "fa-solid fa-envelope",
+      heading: "Send E-Mail",
+      desc: "factorymanagers28@gmail.com"
     }
   ];
 
@@ -49,22 +75,35 @@ const Contact = () => {
         <div className="row mb-5">
           <div className="col-md-1"></div>
           <div className="col-md-10">
-            <h1 className='fw-bold'>Let’s <span style={{ color: "#7D0A0A" }}>Get in Touch!</span></h1>
-            <p className='lead fw-semibold'>We’re excited to connect with you! Fill out the form below, and our team will get back to you as soon as possible. Whether you have questions about InToIn, need assistance, or want to schedule a demo, we’re here to help.</p>
+            <h1 className="fw-bold">
+              Let’s <span style={{ color: "#7D0A0A" }}>Get in Touch!</span>
+            </h1>
+            <p className="lead fw-semibold">
+              We’re excited to connect with you! Fill out the form below, and our team will get back to you as soon as possible. Whether you have questions about InToIn, need assistance, or want to schedule a demo, we’re here to help.
+            </p>
           </div>
         </div>
+
         <div className="row">
           <div className="col-md-1"></div>
           <div className="col-md-4">
-            <div>
-              <img
-                src="/Images/callus.gif"
-                style={{ height: "500px", width: "90%", borderRadius: "0px 60px", marginLeft:'5%', boxShadow: "2px 2px 5px 3px rgba(0, 0, 0, 0.2)" }}
-              />
-            </div>
+            <img
+              src="/Images/callus.gif"
+              alt="Contact Illustration"
+              style={{
+                height: "500px",
+                width: "90%",
+                borderRadius: "0px 60px",
+                marginLeft: "5%",
+                boxShadow: "2px 2px 5px 3px rgba(0, 0, 0, 0.2)"
+              }}
+            />
           </div>
           <div className="col-md-6">
-            <form onSubmit={handleSubmit} className="p-5 border rounded shadow bg-light me-3">
+            <form
+              onSubmit={handleSubmit}
+              className="p-5 border rounded shadow bg-light me-3"
+            >
               <div className="mb-3">
                 <label className="form-label">Your Name</label>
                 <input
@@ -112,13 +151,15 @@ const Contact = () => {
                   required
                 />
               </div>
-              <button type="submit" className="btn btn-primary w-100">Request for a call</button>
+              <button type="submit" className="btn w-100" style={{backgroundColor:'#7D0A0A', color:'white'}}>
+                Request for a call
+              </button>
             </form>
           </div>
         </div>
       </section>
 
-      <section className="container-fluid bg-light py-4">
+      <section className="container-fluid bg-light py-4 d-none d-flex-none">
         <div className="container">
           <div className="row">
             {contactData.map((val, index) => (
@@ -129,7 +170,7 @@ const Contact = () => {
                       <div className="col-md-2">
                         <span>
                           <i
-                            className={`fa-solid ${val.icon} fa-3x mt-3 ms-5`}
+                            className={`${val.icon} fa-3x mt-3 ms-5`}
                             style={{ color: "#7D0A0A" }}
                           ></i>
                         </span>

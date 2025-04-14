@@ -80,7 +80,7 @@ const Choukashi = () => {
   return (
     <section className='keyfeatures container bg-light p-5 mt-5'>
       <div className='row'>
-        <div className='col-md-6'>
+        <div className='col-md-7 col-lg-6'>
           <div className="row">
             {choukashiFeatures.map((feature, index) => (
               <div className="col-12 col-md-4 d-flex justify-content-center mb-4" key={index}>
@@ -106,7 +106,7 @@ const Choukashi = () => {
             ))}
           </div>
         </div>
-        <div className='col-md-6'>
+        <div className='col-md-5 col-lg-6'>
           <div className="ms-3">
             <h1>
               Smart <span style={{ color: "#7D0A0A" }}>CRM</span> for{' '}

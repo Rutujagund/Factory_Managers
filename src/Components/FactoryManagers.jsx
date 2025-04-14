@@ -112,36 +112,39 @@ const FactoryManagers = () => {
     <>
     <section className='keyfeatures container bg-light p-5 mt-5'>
       <div className='row'>
-        <div className='col-md-4 col-sm-12'>
+        <div className='disableMobile col-md-4'>
           <h1>
             One <span style={{ color: "#7D0A0A" }}>ERP</span> Solution to <span style={{ color: "#7D0A0A" }}>Manage Your Entire Business</span>
           </h1>
           <img
             src="/Images/FactoryManagers_logo.png"
             alt="choukashi"
-            style={{ height: "170px",width: "100%",marginLeft: "-30px" }}
+            style={{ height: "200px",width: "100%",marginLeft: "-30px" }}
           />
-          <p className='lead d-none d-md-block'>
+          <p className='lead'>
             A comprehensive ERP solution designed to streamline operations, improve productivity, and manage your entire business efficiently and intelligently.
           </p>
         </div>
         <div className='col-md-8'>
+          <h1 className="mobile-title d-block d-sm-none text-center mb-3">
+            Key <span style={{ color: "#7D0A0A" }}></span>Features
+          </h1>
           <div className="row">
             {factoyrManagersFeatures.map((feature, index) => (
-              <div className="col-12 col-md-4 d-flex justify-content-center mb-4" key={index}>
+              <div className="col-lg-3 col-md-4 mb-4" key={index}>
                 <div
                   className="choukashicard card"
                   ref={el => (cardsRef.current[index] = el)}
                 >
                   <div className="card-body">
-                    <div className="card-content d-flex flex-md-column align-items-center">
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                       {feature.icon ? (
-                        <i className={`${feature.icon} fa-2x me-2 me-md-0`} style={{ color: "#7D0A0A" }}></i>
+                        <i className={`${feature.icon} fa-2x`} style={{ color: "#7D0A0A" }}></i>
                       ) : (
-                        <img src={feature.image} alt="icon" style={{ width: "30px" }} className="me-2 me-md-0" />
+                        <img src={feature.image} alt="icon" style={{ width: "40px" }} />
                       )}
-                      <h6 className="card-title mt-0 mt-md-3">{feature.title}</h6>
                     </div>
+                    <h6 className="card-title text-center mt-3">{feature.title}</h6>
                     <div className="overlay d-none d-md-flex">
                       <p className="card-text text-center" style={{ textAlign: 'justify', lineHeight:"1.1" }}>{feature.desc}</p>
                     </div>
@@ -149,7 +152,7 @@ const FactoryManagers = () => {
                 </div>
               </div>
             ))}
-          </div>          
+          </div>
         </div>
       </div>
     </section>
